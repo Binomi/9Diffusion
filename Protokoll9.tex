@@ -104,6 +104,8 @@
 \usepackage{listings}
 \lstset{numbers=left, numberstyle=\tiny, numbersep=5pt}
 
+%errorFkt
+\newcommand{\erf}{\ensuremath{\text{erf}}}
 
 \begin{document}
 
@@ -205,7 +207,15 @@ Diesen ganzen Messvorgang wird für die erste Küvette nach ca. 100 Minuten  sei
 \section{Auswertung}
 \label{sec:auswertung}
 \subsection{Konzentrationsverlauf in Abhängigkeit der Zeit}
-\input{DiffStrecke.tex}
+\begin{figure}
+	\input{errorfkt.tex}
+\end{figure}
+
+
+\begin{figure}
+	\input{DiffStrecke.tex}
+\end{figure}
+
 
 \begin{align*}
 	c0/16&: (0.00188398 \pm 2.616~e-005)~\si{\milli \meter ^2 / \second}\\
@@ -213,7 +223,12 @@ Diesen ganzen Messvorgang wird für die erste Küvette nach ca. 100 Minuten  sei
 \end{align*}
 
 \begin{align}
-	D=\frac{m}{4~C^2}	
+	D&=\frac{m}{4~C^2}\\
+	\sigma_D&=\frac{\sigma_m}{4~C^2}
+\end{align}
+
+\begin{align}
+	\erf(y)=\erf\left(\frac{x}{\sqrt{4Dt}}\right)
 \end{align}
 
 \subsection{Konzentrationsprofil}

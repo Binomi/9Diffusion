@@ -1,8 +1,8 @@
 reset
 set terminal epslatex color
 set output 'errorfkt.tex'
-set xlabel 'x [mm]'
-set ylabel '$C(x,t)/C_0$'
+set xlabel '$x$ [mm]'
+set ylabel '$c(x,t)/c_0$'
 set key top right
 set xrange [-3:3]
 set yrange [0:1.1]

@@ -107,6 +107,10 @@
 %errorFkt
 \newcommand{\erf}{\ensuremath{\text{erf}}}
 
+%Boxen,etc.
+\usepackage{fancybox}
+\usepackage{empheq}
+
 \begin{document}
 
 \begin{titlepage}
@@ -177,12 +181,28 @@ Wir wollen hier die Diffusion von Methylenblau in Wasser untersuchen.
 \label{sec:theorie}
 \subsection{Ficksche Gesetze}
 
+Man kann dies analytisch lösen. Dabei ergibt sich dies als Lösung:
+\begin{align}
+	c(x,t)=\frac{c_0}{2} \left[1-\erf\left(\frac{x}{\sqrt{4Dt}}\right)\right]	
+	\label{eq:DiffLsg}
+\end{align}
+
 \subsection{Wheatstone'sche Messbrücke}
+\begin{figure}[!htb]
+	\centering	
+	\includegraphics[scale=0.7]{Brueckenschaltung.png}
+	\caption{Wheatstone'sche Brückenschaltung \cite{lp}}
+\end{figure}
+
 
 \section{Durchführung}
 \label{sec:durchfuehrung}
 \subsection{Versuchsaufbau}
-BILD\\
+\begin{figure}[!htb]
+	\centering	
+	\includegraphics[scale=0.7]{Aufbau_schematisch.png}
+	\caption{schematischer Versuchsaufbau \cite{lp}}
+\end{figure}
 Zuerst wird der Spalt so justiert, dass auf den Photowiderstand die maximale Intensität trifft.
 Außerdem benötigt man noch zwei Stoppuhren für die späteren Messungen.
 \subsection{Konzentrationsverlauf in Abhängigkeit der Zeit}
@@ -206,21 +226,28 @@ Diesen ganzen Messvorgang wird für die erste Küvette nach ca. 100 Minuten  sei
 
 \section{Auswertung}
 \label{sec:auswertung}
-\subsection{Konzentrationsverlauf in Abhängigkeit der Zeit}
+
+\subsection{erwartete Diffusionskurven}
 \begin{figure}
 	\input{errorfkt.tex}
+	\caption{Profil für den Diffusionskoeffizienten $D=4\cdot 10^{-10} ~ \si{\meter ^2 / \second}$ zu verschiedenen Zeiten}
+	\label{fig:erwDiffKurve}
 \end{figure}
 
+Aus der Lösung der Diffusionsgleichung \eqref{eq:DiffLsg} ergibt sich Abbildung \ref{fig:erwDiffKurve}.
+Man erkennt,dass es zu $t=0$ eine klare Grenze zwischen den beiden Flüssigkeiten.
+Im Verlauf der Zeit (hier nach 30 und 90 Minuten) vermischen sie sich.
+Bei $x=0$ befindet sich jedoch immer die Konzentration $c_0/2$.
+
+\subsection{Berechnung des Diffusionskoeefizienten}
 
 \begin{figure}
 	\input{DiffStrecke.tex}
+	\caption{???????????????????}
 \end{figure}
 
 
-\begin{align*}
-	c0/16&: (0.00188398 \pm 2.616~e-005)~\si{\milli \meter ^2 / \second}\\
-	c0/32&: (0.00196675 \pm 5.638~e-005) ~\si{\milli \meter ^2 / \second}\\
-\end{align*}
+
 
 \begin{align}
 	D&=\frac{m}{4~C^2}\\
@@ -231,8 +258,40 @@ Diesen ganzen Messvorgang wird für die erste Küvette nach ca. 100 Minuten  sei
 	\erf(y)=\erf\left(\frac{x}{\sqrt{4Dt}}\right)
 \end{align}
 
-\subsection{Konzentrationsprofil}
+\begin{table}[!htb]
+\centering
+\begin{tabular}{|c|c|c|}
+	\hline		
+	& Messung 1 & Messung 2 \\
+	& $c_0/16$ & $c_0/32$ \\
+	\hline
+	\hline
+	y genähert \footnotemark & $1.085$ & $1.317$ \\	
+	
+	Steigung m & 
+	$(18.8 \pm 0.3) \cdot 10^{-10}\si{\meter ^2 / \second}$ & 
+	$(19.7 \pm 0.6) \cdot 10^{-10} \si{ \meter ^2 / \second}$ \\	
+	
+	Diffusionskoeffizient D &
+	$(4.00 \pm 0.06) \cdot 10^{-10}\si{\meter ^2 / \second}$ & 
+	$(2.83 \pm 0.09) \cdot 10^{-10} \si{ \meter ^2 / \second}$ \\	
+	\hline		
+\end{tabular}
+\caption{Auswertung Messung 1 und 2}
+\label{tab:ausw12}
+\end{table}
 
+\footnotetext{\textit{WolframAlpha}, www.wolframalpha.com}
+
+\begin{empheq}[box=\shadowbox*]{align}
+\overline{D}&=(3.63\pm 0.04) \cdot 10^{-10}\si{ \meter ^2 / \second}
+\end{empheq}
+
+\subsection{Konzentrationsprofil}
+\begin{figure}
+	\input{Diffprofil.tex}
+	\caption{???????????????????}
+\end{figure}
 
 \section{Diskussion}
 \label{sec:diskussion}

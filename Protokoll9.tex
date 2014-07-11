@@ -180,12 +180,24 @@ Wir wollen hier die Diffusion von Methylenblau in Wasser untersuchen.
 \section{Theorie}
 \label{sec:theorie}
 \subsection{Ficksche Gesetze}
+\textbf{1.Ficksches Gesetz}
+\begin{empheq}[box=\shadowbox*]{align}
+\vec{j}(\vec{x})=-D\cdot\nabla n
+\end{empheq}
+\textbf{2.Ficksches Gesetz}
+\begin{empheq}[box=\shadowbox*]{align}
+\frac{\partial n}{\partial t}=-D\cdot\Delta n
+\end{empheq}
 
 Man kann dies analytisch lösen. Dabei ergibt sich dies als Lösung:
 \begin{align}
 	c(x,t)=\frac{c_0}{2} \left[1-\erf\left(\frac{x}{\sqrt{4Dt}}\right)\right]	
 	\label{eq:DiffLsg}
 \end{align}
+Gaußsche Fehlerfunktion
+\begin{align*}
+	\erf(y):=\frac{2}{\sqrt{\pi}} \int_0^y \! e^{-v^2}\, \mathrm{d}v
+\end{align*}
 
 \subsection{Wheatstone'sche Messbrücke}
 \begin{figure}[!htb]
@@ -245,8 +257,6 @@ Bei $x=0$ befindet sich jedoch immer die Konzentration $c_0/2$.
 	\input{DiffStrecke.tex}
 	\caption{???????????????????}
 \end{figure}
-
-
 
 
 \begin{align}

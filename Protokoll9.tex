@@ -208,8 +208,13 @@ Da die Teilchenzahl konstant ist, ergibt sich die Kontinuitätsgleichung $\frac{
 Kombiniert man dies mit dem 1.Gesetz erhält man das zweite Gesetz.
 
 \begin{empheq}[box=\shadowbox*]{align}
-\frac{\partial n}{\partial t}=-D\cdot\Delta c
+\frac{\partial c}{\partial t}=-D\cdot\Delta c
 \end{empheq}
+
+Da wir nur den eindimensionalen Fall betrachteten, ergibt sich daraus diese Differentialgleichung
+\begin{align}
+	\frac{\partial c}{\partial t}=-D\frac{\partial^2 c}{\partial x^2}
+\end{align}
 
 In unserem Versuchsaufbau befindet sich die Grenzschicht zwischen den beiden Flüssigkeiten bei $x=0$.
 \begin{align*}
@@ -242,7 +247,7 @@ Mit dieser Schaltung kann man also sicherstellen, dass der Fotowiderstand immer 
 
 \begin{figure}[!htb]
 	\centering	
-	\includegraphics[scale=0.7]{Brueckenschaltung.png}
+	\includegraphics[scale=0.6]{Brueckenschaltung.png}
 	\caption{Wheatstone'sche Brückenschaltung \cite{lp}}
 	\label{fig:bruecke}
 \end{figure}
@@ -260,6 +265,7 @@ Zuerst wird der Spalt so justiert, dass auf den Photowiderstand die maximale Int
 Außerdem benötigt man noch zwei Stoppuhren für die späteren Messungen und die Wheatstone'sche Brücke muss verkabelt werden.
 
 \subsection{Konzentrationsverlauf in Abhängigkeit der Zeit}
+\textbf{Messung 1}\\
 Für den Graufilter $c_0/16$ regelt man das Potentiometer so, dass das Amperemeter keinen Strom anzeigt.
 Dann wird die Küvette zu $3/4$ mit Wasser gefüllt, darüber Methylenblau.
 Man startet die Stoppuhr, nachdem man die Küvette in den Strahlengang gestellt hat.
@@ -267,15 +273,18 @@ Für eine halbe Stunde notiert man alle 30 Sekunden den Ort der Konzentration $c
 Dabei wird jedoch die Messbrücke nicht verändert, sondern die Küvette mittels Micrometerschraube nach oben bewegt, bis das Amperemeter wieder keinen Strom zeigt.\\
 Nach der Messung wird diese Küvette vorsichtig zur Seite gestellt, damit sich die Flüssigkeiten nicht zusätzlich vermischen.
 Die benutzte Stoppuhr lässt man für eine spätere Messung weiterlaufen.
+\textbf{Messung 2}
 Dann füllt man eine zweite Küvette wie die erste, gleicht aber die Messbrücke mit dem Graufilter $c_0/32$ ab.
 Die vorige Messung wird mit der zweiten Küvette, der zweiten Stoppuhr und dem anderen Filter wiederholt.
 \subsection{Konzentrationsprofil}
+\textbf{Messung 3}\\
 Etwa 40 Minuten nach Beginn der letzten Messung wird die Konzentrationsverteilug der zweiten Küvette in Abhängigkeit des Ortes gemessen.
 Dies sollte schnell geschehen, damit die Zeit als konstant angenommen werden kann.
 Trotzdem notiert man Beginn und Ende dieser Messung, die Stoppuhr muss also weiter laufen.
 Der Messvorgang sieht folgendermaßen aus:
 Nacheinander wird die Messbrücke auf die verschiedenen Graufilter $c_0/2, c_0/4, c_0/8, c_0/16, c_0/32$ abgeglichen, bevor man dazu die Stelle sucht, an der genau diese Konzentration herrscht.
 Diesen Vorgang wiederholt man nochmal in umgekehrter Reihenfolge der Graufilter.\\
+\textbf{Messung 4}
 Diesen ganzen Messvorgang wird für die erste Küvette nach ca. 100 Minuten  seit Beginn der zugehörigen ersten Messung wiederholt. 
 
 \section{Auswertung}
@@ -297,18 +306,27 @@ Also in Abb. \ref{fig:erwDiffKurve} die Schnittpunkte einer parallelen Gerade zu
 In den letzten beiden Messungen verfolgt man Werte auf einer Kurve mit konstanter Zeit.
 
 \subsection{Berechnung des Diffusionskoeefizienten}
+Aus der Lösung der Diffusionsgleichung  (Formel \ref{eq:DiffLsg}) folgt für einen festen Konzentrationswert $c:=C\cdot c_0$
+\begin{align*}
+	1-2C=\erf\left(\frac{x}{\sqrt{4Dt}}\right)\\
+	\Rightarrow \erf^{-1}(1-2C)=\frac{x}{\sqrt{4Dt}}\\
+\end{align*}
+Mit $y:=\erf^{-1}(1-2C)$ folgt
+\begin{align*}
+	x^2=4yD\cdot t~.
+\end{align*} 
+Trägt man also die Diffusionsstrecke $x$ quadratisch gegen die Zeit auf, ergibt sich eine Ursprungsgerade.
+Deren Steigung sei $m$.
+Damit kann der Diffusionskoeffizient berechnet werden.
 \begin{align}
-	\erf(y)=\erf\left(\frac{x}{\sqrt{4Dt}}\right)
+	D&=\frac{m}{4~y^2}\\
+	\sigma_D&=\frac{\sigma_m}{4~y^2}
 \end{align}
-
-\begin{align}
-	D&=\frac{m}{4~C^2}\\
-	\sigma_D&=\frac{\sigma_m}{4~C^2}
-\end{align}
+Da die Fehlerfunktion keine analytische Umkehrfunktion besitzt, muss ein Computerprogramm genutzt werden, um $y$ zu berechnen. Ich habe mich für den Internet-Dienst \textsl{WolframAlpha \footnote{www.wolframalpha.com}} entschieden.
 
 \begin{figure}
 	\input{DiffStrecke.tex}
-	\caption{???????????????????}
+	\caption{Messung 1 und 2: Quadrat der Diffusionsstrecke im Verlaufe der Zeit}
 	\label{fig:mess12}
 \end{figure}
 
@@ -321,8 +339,9 @@ Für Messung 1 und 2 ergeben sich die Werte aus Tabelle \ref{tab:ausw12}.
 	& $c_0/16$ & $c_0/32$ \\
 	\hline
 	\hline
-	C genähert \footnotemark & $1.085$ & $1.317$ \\	
-	
+	C & $\frac{1}{16}$ & $\frac{1}{32}$\\
+	y & $1.085$ & $1.317$ \\	
+	\hline
 	Steigung m & 
 	$(18.8 \pm 0.3) \cdot 10^{-10}\si{\meter ^2 / \second}$ & 
 	$(19.7 \pm 0.6) \cdot 10^{-10} \si{ \meter ^2 / \second}$ \\	
@@ -335,7 +354,6 @@ Für Messung 1 und 2 ergeben sich die Werte aus Tabelle \ref{tab:ausw12}.
 \caption{Auswertung Messung 1 und 2}
 \label{tab:ausw12}
 \end{table}
-\footnotetext{\textit{WolframAlpha}, www.wolframalpha.com}
 
 Daraus kann der gewichtete Mittelwert des Diffusionskoeffizienten berechnet werden
 \begin{empheq}[box=\shadowbox*]{align}
@@ -345,33 +363,62 @@ Daraus kann der gewichtete Mittelwert des Diffusionskoeffizienten berechnet werd
 \subsection{Konzentrationsprofil}
 \begin{figure}[!htb]
 	\input{Diffprofil40.tex}
-	\caption{Messung 3}
+	\caption{Messung 3: Messwerte mit erwartetem Verlauf für Start- und Endzeit der Messung}
+	\label{fig:mess3}
 \end{figure}
 
 \begin{figure}[!htb]
 	\input{Diffprofil100.tex}
-	\caption{Messung 4}
+	\caption{Messung 4: Messwerte mit erwartetem Verlauf für Start- und Endzeit der Messung}
+	\label{fig:mess4}
 \end{figure}
 
 \section{Diskussion}
 \label{sec:diskussion}
-\subsection{Berechnung des Diffusionskoeefizienten}
+\subsection{Messung 1 und 2}
 Betrachtet man Abb. \ref{fig:mess12}, fällt auf, dass sich bei der ersten Messung $c_0/16$ wie erwartet eine Gerade ergibt. Bei der zweiten Messung ergibt sich jedoch eher etwas quadratisches.
-Deshalb sind beide Ursprungsgeraden ungefähr gleich und erklärt den großen Unterschied zwischen den beiden Werten für $D$.
-Dies ergibt physikalisch wenig Sinn.
+Deshalb sind beide Ursprungsgeraden ungefähr gleich und dies erklärt die große Abweichung des Wertes für $D$ von $30\%$ zum Wert der ersten Messung.
+Außerdem überschneiden sich die Fehler nicht.
+Jedoch ist der gewichtete Mittelwert nahe an dem Wert von $4\cdot 10^{-10}~\si{\meter^2/\second}$ aus dem Praktikumshandbuch.
+
+Man erkennt, dass die Messwerte von Messung 2  erst nach ca. 20 Minuten größer sind als die der ersten Messung.
+Dies ergibt physikalisch wenig Sinn, da daraus folgen würde, dass die Konzentration $c_0/32$ näher an der Nulllage ($c=c_0/2$) zu finden wäre als $c_0/16$. 
 Daher muss nach einem Fehler in der Messung gesucht werden.
 Zum einen kann es daran liegen, dass wir bei der zweiten Messung zu lange zwischen Befüllen und Messen gewartet haben und sich die Flüssigkeiten schon vor der Messung vermischt haben.
 Dies geschieht auch, wenn die Küvette geschüttelt wurde.
-Berücksichtigt man dies,...............
+Der erste Messwert ($t=0$) wurde jedoch als Ort mit konstanter Konzentration $c_0/2$ angenommen.
+Dies ist er jedoch nicht, wenn die oben beschriebenen Fehler unsererseits berücksichtigt werden.
+Beachtet man dies, könnten die Daten der zweiten Messung so wie in Abb.\ref{fig:DiffDisk} aussehen.
+Dabei wurde der Startwert der Messreihe um einen Millimeter verschoben und so dem bereits geschehenen Prozess der Diffusion Rechnung getragen.
+Man erkennt, dass sich nun eine Gerade ergibt. Diese ist jedoch keine Ursprungsgerade, da man davon ausgeht, dass einige Zeit zwischen Befüllen und Start der Messung vergangen ist.
 
-\subsubsection{Filter}
+\subsection{Filter}
 Außerdem haben wir vergessen, die unterschiedlichen Filter zu reinigen.
 So hat sich der Wert geändert, wenn man die Höhe verändert hat, in der sich der Filter befand.
 Wir können also nicht garantieren, dass für die Filter die richtigen Werte gemessen wurden.
 Da uns dies aber zur Messzeit auffiel, haben wir zusätzlich noch die Potentiometer-Einstellung sowie den Wert des dritten Widerstandes notiert.
 Aus den Daten kann man ablesen,............
 
+\subsection{Messung 3 und 4}
+Man sieht deutlich, dass die Messwerte in Abbildung \ref{fig:mess3} und \ref{fig:mess4} neben den erwarteten Kurven liegen.
+Dies kann auch an den ungereinigten Filtern liegen.
+Außerdem liegen alle Werte rechts der erwarteten Kurven.
+Daran erkennt man, dass die Diffusion schon weiter vorangeschritten ist als vorhergesagt.
+Dies kann verschiedene Gründe haben.
+Zum einen kommt es durch das Befüllen der Küvette schon zu einer stärkeren Vermischung der beiden Flüssigkeiten. 
+Zum anderen wurde die Küvette später bewegt und so könnte durch Stöße, die auch durch Wackeln am Tisch hervorgerufen werden, die Vermischung beschleunigt werden.
+Dies sind Fehlerquellen, die jedoch zwangsläufig auftreten und nur schwer oder mit hohem Aufwand vermieden werden.\\
+Des weiteren steigt die Temperatur durch die Lampe, die während der Messzeit die Küvette beleuchtet, und so auch der Diffusionskoeffizient.
+
+\subsection{Fazit}
+
 \section{Anhang}
+\begin{figure}
+	\centering
+	\input{DiffDisk.tex}
+	\caption{Messung 2 angepasst}
+	\label{fig:DiffDisk}
+\end{figure}
 
 \begin{thebibliography}{100}
 

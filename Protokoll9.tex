@@ -300,6 +300,7 @@ Diesen ganzen Messvorgang wird für die erste Küvette nach ca. 100 Minuten  sei
 \label{sec:auswertung}
 \subsection{erwartete Diffusionskurven}
 \begin{figure}
+	\centering	
 	\input{errorfkt.tex}
 	\caption{Profil für den Diffusionskoeffizienten $D=4\cdot 10^{-10} ~ \si{\meter ^2 / \second}$ zu verschiedenen Zeiten}
 	\label{fig:erwDiffKurve}
@@ -330,6 +331,7 @@ Damit kann der Diffusionskoeffizient berechnet werden.
 Da die Fehlerfunktion keine analytische Umkehrfunktion besitzt, muss ein Computerprogramm genutzt werden, um $y$ zu berechnen. Ich habe mich für den Internet-Dienst \textsl{WolframAlpha \footnote{www.wolframalpha.com}} entschieden.
 
 \begin{figure}
+	\centering	
 	\input{DiffStrecke.tex}
 	\caption{Messung 1 und 2: Quadrat der Diffusionsstrecke im Verlaufe der Zeit}
 	\label{fig:mess12}
@@ -368,29 +370,32 @@ Daraus kann der gewichtete Mittelwert des Diffusionskoeffizienten berechnet werd
 \subsection{Konzentrationsprofil}
 Hier wurde der Mittelwert des Ortes mit der Konzentration $c_0/2$ als Nullpunkt gewählt, da sich dieser nicht mit der Zeit verändern sollte.
 Außerdem wurde für die erwarteten Diffusionskurven der oben berechnete Diffusionskoeffizient $\overline{D}$ verwendet.
-Des weiteren geben die Messwerte mit Fehlerbalken in \ref{fig:mess3} und \ref{fig:mess4} den Mittelwert der beiden Meeswerte und die Abweichung von diesem an.\\
+Des Weiteren geben die Messwerte mit Fehlerbalken in \ref{fig:mess3} und \ref{fig:mess4} den Mittelwert der beiden Messwerte und die Abweichung von diesem an.\\
 \begin{figure}[!htb]
+	\centering	
 	\input{Diffprofil40.tex}
 	\caption{Messung 3: Messwerte mit erwartetem Verlauf für Start- und Endzeit der Messung}
 	\label{fig:mess3}
 \end{figure}
 
 \begin{figure}[!htb]
+	\centering	
 	\input{Diffprofil100.tex}
 	\caption{Messung 4: Messwerte mit erwartetem Verlauf für Start- und Endzeit der Messung}
 	\label{fig:mess4}
 \end{figure}
-Um den Fehler zu berechnen, der sich aus der Annahme ergibt, zu konstanter Zeit gemessen zu haben, ...........
+Um den Fehler zu berechnen, der sich aus der Annahme ergibt, zu konstanter Zeit gemessen zu haben, verwende ich die Formeln und Variablen aus dem vorigen Abschnitt:
 \begin{align*}
 	x&=2y\sqrt{Dt}\\ \Rightarrow
 	\sigma_x&=\sqrt{\left(\frac{y~D}{\sqrt{Dt}}\right)^2 \cdot\sigma_t^2+\left(\frac{y~t}{\sqrt{Dt}}\right)^2 \cdot\sigma_D^2}
 \end{align*}
 Für Messung 3 benötigten wir $16~\si{\minute}$, für Messung 4 nur $9 ~\si{\minute}$.
-Nehmen wir diese Werte als $\sigma_t$, ergibt sich für die Konzentration $c_0/32$ eine Abweichung $\sigma_x$
+Nehmen wir diese Werte als $2\sigma_t$, ergibt sich für die Konzentration $c_0/32$ eine Abweichung $\sigma_x$
 \begin{align}
-	\sigma_x(t=40~\si{\minute})&=\\
-	\sigma_x(t=90.5~\si{\minute})&=
+	\sigma_x(t=40~\si{\minute})&=0.25 ~ \si{\milli \meter}\\
+	\sigma_x(t=90.5~\si{\minute})&=0.10 ~ \si{\milli \meter}
 \end{align}
+Da der y-Wert für $c_0/32$ am größten ist, bleibt der Fehler aus der konstanten Zeit für die anderen Konzentrationen stets geringer. 
 
 \section{Diskussion}
 \label{sec:diskussion}
@@ -409,28 +414,34 @@ Der erste Messwert ($t=0$) wurde jedoch als Ort mit konstanter Konzentration $c_
 Dies ist er jedoch nicht, wenn die oben beschriebenen Fehler unsererseits berücksichtigt werden.
 Beachtet man dies, könnten die Daten der zweiten Messung so wie in Abb.\ref{fig:DiffDisk} aussehen.
 Dabei wurde der Startwert der Messreihe um einen Millimeter verschoben und so dem bereits geschehenen Prozess der Diffusion Rechnung getragen.
-Man erkennt, dass sich nun eine Gerade ergibt. Diese ist jedoch keine Ursprungsgerade, da man davon ausgeht, dass einige Zeit zwischen Befüllen und Start der Messung vergangen ist.
+Man erkennt, dass sich nun eine Gerade ergibt. Diese ist jedoch keine Ursprungsgerade, da man davon ausgeht, dass einige Zeit zwischen Befüllen und Start der Messung vergangen ist.\\
+Diese These wird auch davon unterstützt, dass der erste Messwert der zweiten Messung ($x_0=7.55$ mm) stark vom Ort der Konzentration $c_0/2$ aus Messung 3(gleiche Küvette) abweicht.
+Hier ist $x_0=5.45$ mm.
+Dieser Unterschied kann aber auch auf einen Ablesefehler hindeuten, 
+also dass die Striche der Micrometerschraube falsch abgelesen wurden.
 
 \subsection{Filter}
 Außerdem haben wir vergessen, die unterschiedlichen Filter zu reinigen.
 So hat sich der Wert geändert, wenn man die Höhe verändert hat, in der sich der Filter befand.
 Wir können also nicht garantieren, dass für die Filter die richtigen Werte gemessen wurden.
 Da uns dies aber zur Messzeit auffiel, haben wir zusätzlich noch die Potentiometer-Einstellung sowie den Wert des dritten Widerstandes notiert.
-Aus den Daten kann man ablesen,............
+Aus den Daten kann man ablesen, dass besonders die beiden Werte für $c0/32$ aus Messung 3 (vgl. Abb. \ref{fig:mess3}) stark abweichen, weil die Potentiometer-Einstellungen stark voneinander abweichen. Der größere ist nämlich $2.3$ mal so groß wie der kleinere.
 
 \subsection{Messung 3 und 4}
-Man sieht deutlich, dass die Messwerte in Abbildung \ref{fig:mess3} und \ref{fig:mess4} neben den erwarteten Kurven liegen.
-Dies kann auch an den ungereinigten Filtern liegen.
+Man sieht deutlich, dass die Messwerte in Abbildung \ref{fig:mess3} und \ref{fig:mess4} neben den erwarteten Kurven liegen und nicht dazwischen - wie vorhergesagt.
+Vergleicht man dies mit den berechneten Fehlern, die sich aus der Annahme einer konstanten Messzeit ergeben, stellt man fest, dass dieser um eine Größenordnung geringer ist als die Abweichung in den Plots und so nicht dafür verantwortlich sein kann.
+Dieser Fehler kann zum einen auch wieder an den ungereinigten Filtern liegen.
 Außerdem liegen alle Werte rechts der erwarteten Kurven.
 Daran erkennt man, dass die Diffusion schon weiter vorangeschritten ist als vorhergesagt.
 Dies kann verschiedene Gründe haben.
 Zum einen kommt es durch das Befüllen der Küvette schon zu einer stärkeren Vermischung der beiden Flüssigkeiten. 
 Zum anderen wurde die Küvette später bewegt und so könnte durch Stöße, die auch durch Wackeln am Tisch hervorgerufen werden, die Vermischung beschleunigt werden.
-Dies sind Fehlerquellen, die jedoch zwangsläufig auftreten und nur schwer oder mit hohem Aufwand vermieden werden.\\
-Des weiteren steigt die Temperatur durch die Lampe, die während der Messzeit die Küvette beleuchtet, und so auch der Diffusionskoeffizient.
+Des Weiteren steigt die Temperatur durch die Lampe, die während der Messzeit die Küvette beleuchtet, und so auch der Diffusionskoeffizient.\\
+
+Dies sind alles Fehlerquellen, die jedoch zwangsläufig auftreten und nur schwer oder mit hohem Aufwand vermieden werden können.
 
 \section{Anhang}
-\begin{figure}
+\begin{figure}[!hbt]
 	\centering
 	\input{DiffDisk.tex}
 	\caption{Messung 2 angepasst}

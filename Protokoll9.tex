@@ -116,6 +116,9 @@
 \usepackage{fancybox}
 \usepackage{empheq}
 
+%Fußnoten auf gleiche Seite
+\interfootnotelinepenalty=1000
+
 \begin{document}
 
 \begin{titlepage}
@@ -265,26 +268,26 @@ Zuerst wird der Spalt so justiert, dass auf den Photowiderstand die maximale Int
 Außerdem benötigt man noch zwei Stoppuhren für die späteren Messungen und die Wheatstone'sche Brücke muss verkabelt werden.
 
 \subsection{Konzentrationsverlauf in Abhängigkeit der Zeit}
-\textbf{Messung 1}\\
+\textbf{Messung 1:}
 Für den Graufilter $c_0/16$ regelt man das Potentiometer so, dass das Amperemeter keinen Strom anzeigt.
 Dann wird die Küvette zu $3/4$ mit Wasser gefüllt, darüber Methylenblau.
 Man startet die Stoppuhr, nachdem man die Küvette in den Strahlengang gestellt hat.
 Für eine halbe Stunde notiert man alle 30 Sekunden den Ort der Konzentration $c_0/16$.
 Dabei wird jedoch die Messbrücke nicht verändert, sondern die Küvette mittels Micrometerschraube nach oben bewegt, bis das Amperemeter wieder keinen Strom zeigt.\\
 Nach der Messung wird diese Küvette vorsichtig zur Seite gestellt, damit sich die Flüssigkeiten nicht zusätzlich vermischen.
-Die benutzte Stoppuhr lässt man für eine spätere Messung weiterlaufen.
-\textbf{Messung 2}
+Die benutzte Stoppuhr lässt man für eine spätere Messung weiterlaufen.\\
+\textbf{Messung 2:}
 Dann füllt man eine zweite Küvette wie die erste, gleicht aber die Messbrücke mit dem Graufilter $c_0/32$ ab.
 Die vorige Messung wird mit der zweiten Küvette, der zweiten Stoppuhr und dem anderen Filter wiederholt.
 \subsection{Konzentrationsprofil}
-\textbf{Messung 3}\\
+\textbf{Messung 3:}
 Etwa 40 Minuten nach Beginn der letzten Messung wird die Konzentrationsverteilug der zweiten Küvette in Abhängigkeit des Ortes gemessen.
 Dies sollte schnell geschehen, damit die Zeit als konstant angenommen werden kann.
 Trotzdem notiert man Beginn und Ende dieser Messung, die Stoppuhr muss also weiter laufen.
 Der Messvorgang sieht folgendermaßen aus:
 Nacheinander wird die Messbrücke auf die verschiedenen Graufilter $c_0/2, c_0/4, c_0/8, c_0/16, c_0/32$ abgeglichen, bevor man dazu die Stelle sucht, an der genau diese Konzentration herrscht.
 Diesen Vorgang wiederholt man nochmal in umgekehrter Reihenfolge der Graufilter.\\
-\textbf{Messung 4}
+\textbf{Messung 4:}
 Diesen ganzen Messvorgang wird für die erste Küvette nach ca. 100 Minuten  seit Beginn der zugehörigen ersten Messung wiederholt. 
 
 \section{Auswertung}
@@ -311,11 +314,8 @@ Aus der Lösung der Diffusionsgleichung  (Formel \ref{eq:DiffLsg}) folgt für ei
 	1-2C=\erf\left(\frac{x}{\sqrt{4Dt}}\right)\\
 	\Rightarrow \erf^{-1}(1-2C)=\frac{x}{\sqrt{4Dt}}\\
 \end{align*}
-Mit $y:=\erf^{-1}(1-2C)$ folgt
-\begin{align*}
-	x^2=4yD\cdot t~.
-\end{align*} 
-Trägt man also die Diffusionsstrecke $x$ quadratisch gegen die Zeit auf, ergibt sich eine Ursprungsgerade.
+Mit $y:=\erf^{-1}(1-2C)$ folgt $x^2=4yD\cdot t$.
+Trägt man also die Diffusionsstrecke $x$ quadratisch gegen die Zeit auf, sollte sich eine Ursprungsgerade ergeben.
 Deren Steigung sei $m$.
 Damit kann der Diffusionskoeffizient berechnet werden.
 \begin{align}

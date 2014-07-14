@@ -20,7 +20,7 @@ t3=60*86
 t4=60*95
 
 p 'Diffprofil40.dat' u (($2+$3)/2-5.45):(1/$1):(($2-$3)/2) w xe t'Messung 3',\
-f1(x) t'32 min' lt -1 lw 3 lc 2, f2(x) t'48min'  lt -1 lw 3 lc 3
+f1(x) t'Theorie 32 min' lt -1 lw 3 lc 2, f2(x) t'Theorie 48 min'  lt -1 lw 3 lc 3
 
 set output
 !epstopdf Diffprofil40.eps
@@ -29,7 +29,7 @@ set output
 set output 'Diffprofil100.tex'
 
 p 'Diffprofil100.dat' u (($2+$3)/2-4.975):(1/$1):(($2-$3)/2) w xe t'Messung 4',\
-f3(x) t'86 min' lt -1 lw 3 lc 2, f4(x) t'95 min' lt -1 lw 3 lc 3
+f3(x) t'Theorie 86 min' lt -1 lw 3 lc 2, f4(x) t'Theorie 95 min' lt -1 lw 3 lc 3
 
 set output
 !epstopdf Diffprofil100.eps

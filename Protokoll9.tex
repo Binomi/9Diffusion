@@ -190,15 +190,17 @@ Wir wollen hier die Diffusion von Methylenblau in Wasser untersuchen.
 \subsection{Brown'sche Bewegung}
 Den Effekt der Diffusion kann man qualitativ durch die \textit{Brown'sche Molekularbewegung} erklären.
 So bewegen sich die Moleküle in einer Flüssigkeit aufgrund ihrer Temperatur und stoßen mit anderen Teilchen zusammen.
-Dabei vermischen sich zwei verschiedene Flüssigkeiten.\\
+Dabei vermischen sich zwei verschiedene Flüssigkeiten.
 Man kann diese Bewegung durch Staubkörner sichtbar machen.
 Diese sind nämlich um Größenordnungen größer als die Flüssigkeitsmoleküle und können so mit dem Mikroskop gesehen werden.
+Dies wurde zuerst von dem Botaniker \textit{Robert Brown} im Jahre 1827 entdeckt.\\
+Literatur: \cite[S.221]{demtroeder}
 
 \subsection{Ficksche Gesetze}
 Man kann die Diffusion allerdings auch quantitativ beschreiben.
 So erhält man die von A.Fick  im Jahre 1855 auf empirischer Basis aufgestellten und nach ihm benannten Gesetze.
 Diese wurden später von  Albert Einstein aus der Thermodynamik abgeleitet.\\
-%Quelle: wiki
+Literatur: \cite{wikiFick} und \cite{crank}\\
 
 \textbf{1.Ficksches Gesetz}\\
 Die Teilchen wollen die Inhomogenität ausgleichen und fließen so zu Orten geringer Konzentration. Mit der Teilchenstromdichte $\vec j$, dem Konzentrationsgradienten grad $c$ und  dem Diffusionskoeffizienten $D$, der hier orts- und zeitunabhängig sein soll, ergibt sich das 1.Ficksche Gesetz.
@@ -225,7 +227,8 @@ In unserem Versuchsaufbau befindet sich die Grenzschicht zwischen den beiden Fl�
          0, & x>0\end{array}\right. 
 \end{align*}
 
-Man kann das 2.Ficksche Gesetz für diese Anfangsbedingung analytisch lösen. Dabei ergibt sich diese Lösung:
+Man kann das 2.Ficksche Gesetz für diese Anfangsbedingung analytisch lösen.
+Dabei ergibt sich diese Lösung:
 \begin{align}
 	c(x,t)=\frac{c_0}{2} \left[1-\erf\left(\frac{x}{\sqrt{4Dt}}\right)\right]	
 	\label{eq:DiffLsg}
@@ -234,19 +237,22 @@ mit der Gaußschen Fehlerfunktion, die so definiert ist
 \begin{align*}
 	\erf(y):=\frac{2}{\sqrt{\pi}} \int_0^y \! e^{-v^2}\, \dif v ~.
 \end{align*}
+Für die genaue Herleitung siehe \cite[S.11 ff.]{crank}.
 
 \subsection{Wheatstone'sche Messbrücke und Fotowiderstand}
-Diese Schaltung (siehe Abb. \ref{fig:bruecke})  wird verwendet, um einen unbekannten Widerstand  oder kleine Widerstandsänderungen zu messen.
-In unserem Fall ist letzteres der Fall.
-Misst man keine Spannungsdifferenz, gleichbedeutend mit keinem Stromfluss, dann gilt
+Um einen ohmschen Widerstand zu messen, könnte man die abfallende Spannung und den durchfließenden Strom  messen und beides durcheinander teilen.
+Dieses Verfahren ist jedoch aufgrund der endlichen Innenwiderstände der Messgeräte sehr ungenau.
+Daher benutzt man die \textit{Wheatstone'sche Brückenschaltung} (siehe Abb. \ref{fig:bruecke}, Literatur \cite[S.345 f.]{gerthsen}).
+Misst man keine Spannungsdifferenz, gleichbedeutend mit keinem Stromfluss, dann gilt nach den Kirchhoff'schen Regeln
 \begin{align*}
-	\frac{R_1}{R_2}=\frac{R_3}{R_4}
+	\frac{R_1}{R_2}=\frac{R_3}{R_4}~.
 \end{align*}
+Im folgenden ist das Messgerät ein Amperemeter und nicht wie in den Abbildungen zu sehen, ein Voltmeter.\\
 Bei dem Aufbau, der in diesem Versuch vorliegt, kann man 3 verschiedene Widerstände für $R_1$ wählen, während $R_2$ ein Fotowiderstand ist.
 $R_3$ und $R_4$ bilden ein Potentiometer, welches in der Mitte frei abgegriffen werden kann.\\
 Je mehr Licht auf den \textit{Fotowiderstand} fällt, desto kleiner ist sein ohmscher Widerstand.
 Dies beruht auf dem inneren fotoelektrischen Effekt.\\
-Mit dieser Schaltung kann man also sicherstellen, dass der Fotowiderstand immer dann einen bestimmten Lichteinfall misst, wenn kein Strom gemessen wird.
+Mit dieser Schaltung kann man also sicherstellen, dass der Fotowiderstand immer dann einen bestimmten Lichteinfall misst, wenn kein Strom am Amperemeter gemessen wird.
 
 \begin{figure}[!htb]
 	\centering	
@@ -292,7 +298,6 @@ Diesen ganzen Messvorgang wird für die erste Küvette nach ca. 100 Minuten  sei
 
 \section{Auswertung}
 \label{sec:auswertung}
-
 \subsection{erwartete Diffusionskurven}
 \begin{figure}
 	\input{errorfkt.tex}
@@ -361,6 +366,9 @@ Daraus kann der gewichtete Mittelwert des Diffusionskoeffizienten berechnet werd
 \end{empheq}
 
 \subsection{Konzentrationsprofil}
+Hier wurde der Mittelwert des Ortes mit der Konzentration $c_0/2$ als Nullpunkt gewählt, da sich dieser nicht mit der Zeit verändern sollte.
+Außerdem wurde für die erwarteten Diffusionskurven der oben berechnete Diffusionskoeffizient $\overline{D}$ verwendet.
+Des weiteren geben die Messwerte mit Fehlerbalken in \ref{fig:mess3} und \ref{fig:mess4} den Mittelwert der beiden Meeswerte und die Abweichung von diesem an.\\
 \begin{figure}[!htb]
 	\input{Diffprofil40.tex}
 	\caption{Messung 3: Messwerte mit erwartetem Verlauf für Start- und Endzeit der Messung}
@@ -372,6 +380,17 @@ Daraus kann der gewichtete Mittelwert des Diffusionskoeffizienten berechnet werd
 	\caption{Messung 4: Messwerte mit erwartetem Verlauf für Start- und Endzeit der Messung}
 	\label{fig:mess4}
 \end{figure}
+Um den Fehler zu berechnen, der sich aus der Annahme ergibt, zu konstanter Zeit gemessen zu haben, ...........
+\begin{align*}
+	x&=2y\sqrt{Dt}\\ \Rightarrow
+	\sigma_x&=\sqrt{\left(\frac{y~D}{\sqrt{Dt}}\right)^2 \cdot\sigma_t^2+\left(\frac{y~t}{\sqrt{Dt}}\right)^2 \cdot\sigma_D^2}
+\end{align*}
+Für Messung 3 benötigten wir $16~\si{\minute}$, für Messung 4 nur $9 ~\si{\minute}$.
+Nehmen wir diese Werte als $\sigma_t$, ergibt sich für die Konzentration $c_0/32$ eine Abweichung $\sigma_x$
+\begin{align}
+	\sigma_x(t=40~\si{\minute})&=\\
+	\sigma_x(t=90.5~\si{\minute})&=
+\end{align}
 
 \section{Diskussion}
 \label{sec:diskussion}
@@ -410,8 +429,6 @@ Zum anderen wurde die Küvette später bewegt und so könnte durch Stöße, die 
 Dies sind Fehlerquellen, die jedoch zwangsläufig auftreten und nur schwer oder mit hohem Aufwand vermieden werden.\\
 Des weiteren steigt die Temperatur durch die Lampe, die während der Messzeit die Küvette beleuchtet, und so auch der Diffusionskoeffizient.
 
-\subsection{Fazit}
-
 \section{Anhang}
 \begin{figure}
 	\centering
@@ -422,13 +439,22 @@ Des weiteren steigt die Temperatur durch die Lampe, die während der Messzeit di
 
 \begin{thebibliography}{100}
 
+\bibitem{gerthsen}
+	\textsc{Dieter Meschede} (2010): \emph{Gerthsen Physik}, 24. Auflage, Springer Heidelberg
+Dordrecht London New York
+
+\bibitem{demtroeder}
+\textsc{Wolfgang Demtröder} (2008): \emph{Experimentalphysik 1 - Mechanik und Wärme}, 5. Auflage, Springer Berlin, Heidelberg
+
+\bibitem{crank}
+	\textsc{J. Crank} (1975): \emph{Mathematics of Diffusion}, 1. Auflage, Clarendon Press Oxford
+
 \bibitem{lp} 
 	\emph{Lehrportal der Universität Göttingen, Diffusion},
   http://lp.uni-goettingen.de/get/text/3665, abgerufen 09.07.14 11:21 Uhr
-
-%\bibitem{gerthsen}
-%	\textsc{Dieter Meschede} (2010): \emph{Gerthsen Physik}, 24. Auflage, Springer Heidelberg
-%Dordrecht London New York
+  
+\bibitem{wikiFick}
+	\emph{Wikipedia-Artikel zu Adolf Fick}, http://de.wikipedia.org/wiki/Adolf\_Fick, abgerufen 13.07.14 15:27 Uhr
 
 \end{thebibliography}
 
